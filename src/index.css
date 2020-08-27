@@ -7,7 +7,22 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+p, a, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+html, body, div, span, form, input {
+  margin: 0;
+  padding: 0;
+}
+
+button, input {
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
+
+button:focus, input:focus {
+  outline: none;
 }
