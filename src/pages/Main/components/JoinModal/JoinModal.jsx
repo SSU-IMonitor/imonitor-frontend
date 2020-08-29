@@ -61,15 +61,22 @@ function JoinModal({ isOpen, close }) {
       return;
     }
 
-    axios.post("/auth/sign-up", {
-      id: studentId,
-      name,
-      password,
-      major,
-    });
-
-    alert("회원가입이 완료되었습니다.");
-    window.location.replace("/");
+    axios
+      .post("/auth/sign-up", {
+        id: studentId,
+        name,
+        password,
+        major,
+      })
+      .then(res => {
+        alert("회원가입이 완료되었습니다.");
+        window.location.replace("/");
+      })
+      .catch(error => {
+        if (error.response.status === 500) {
+          alert("이미 해당 학번 가입자가 있습니다.");
+        }
+      });
   };
 
   return (
