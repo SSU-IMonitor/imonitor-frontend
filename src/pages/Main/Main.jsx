@@ -1,13 +1,21 @@
 import React from "react";
-import { MainLogin } from "./components";
+import { connect } from "react-redux";
+import { MainLogin, JoinModal } from "./components";
 import "./Main.css";
 
-function Main() {
+function Main({ modalState }) {
   return (
     <div id="main">
       <MainLogin />
+      <JoinModal isOpen={modalState.modal} />
     </div>
   );
 }
 
-export default Main;
+function mapStateToProps(state, ownProps) {
+  return {
+    modalState: state,
+  };
+}
+
+export default connect(mapStateToProps)(Main);

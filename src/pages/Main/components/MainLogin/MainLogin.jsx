@@ -1,8 +1,10 @@
 import React from "react";
+import { connect } from "react-redux";
 import { LoginForm } from "../../components";
+import { openModal } from "actions";
 import "./MainLogin.css";
 
-function MainLogin() {
+function MainLogin({ open }) {
   return (
     <section id="main-login" className="flex-column-center">
       <div className="logo">
@@ -10,10 +12,20 @@ function MainLogin() {
       </div>
       <LoginForm />
       <div className="join-ment">
-        <p>아직 회원이 아니신가요? <span className="join">회원가입</span></p>
+        <p>
+          아직 회원이 아니신가요? <span className="join" onClick={open}>회원가입</span>
+        </p>
       </div>
     </section>
   );
 }
 
-export default MainLogin;
+function mapDispatchToProps(dispatch, ownProps) {
+  return {
+    open: () => {
+      dispatch(openModal())
+    }
+  };
+}
+
+export default connect(null, mapDispatchToProps)(MainLogin);

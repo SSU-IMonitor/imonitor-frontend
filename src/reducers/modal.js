@@ -5,9 +5,9 @@ const initState = false;
 export const modal = (state = initState, action) => {
   switch(action.type) {
     case OPEN_MODAL:
-      return;
+      return true
     case CLOSE_MODAL:
-      return;
+      return false
     default:
       return state;
   }
