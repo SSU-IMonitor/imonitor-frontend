@@ -26,3 +26,7 @@ button, input {
 button:focus, input:focus {
   outline: none;
 }
+
+button:active {
+  color: currentColor;
+}
