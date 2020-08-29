@@ -19,6 +19,8 @@ function LoginForm() {
         localStorage.setItem("AccessToken", JSON.stringify(res.data.accessToken));
         localStorage.setItem("RefreshToken", JSON.stringify(res.data.refreshToken));
         localStorage.setItem("TokenType", JSON.stringify(res.data.tokenType));
+        localStorage.setItem("UserInfo", JSON.stringify(res.data.userInfo));
+        window.location.pathname = "/class";
       })
       .catch(error => {
         if (error.response.status === 500) {
