@@ -4,21 +4,18 @@ import { closeModal } from "actions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import "./JoinModal.css";
+import axios from "axios";
 
 function JoinModal({ isOpen, close }) {
   const [name, setName] = useState("");
   const [major, setMajor] = useState("");
-  const [studentId, setStudentId] = useState(0);
+  const [studentId, setStudentId] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
 
   const confirmRef = createRef();
 
   useEffect(() => {
-    confirmPassword();
-  }, [passwordConfirm]);
-
-  const confirmPassword = () => {
     if (!passwordConfirm) {
       confirmRef.current.style.visibility = "hidden";
     } else {
@@ -32,7 +29,7 @@ function JoinModal({ isOpen, close }) {
       confirmRef.current.style.color = "red";
       confirmRef.current.innerText = "비밀번호가 일치하지않습니다.";
     }
-  };
+  }, [password, passwordConfirm, confirmRef]);
 
   const handleInput = e => {
     switch (e.target.name) {
@@ -63,10 +60,13 @@ function JoinModal({ isOpen, close }) {
       alert("비밀번호가 일치하지 않습니다.");
       return;
     }
-    
-    // ///// //
-    // axios //
-    // ///// //
+
+    axios.post("/auth/sign-up", {
+      id: studentId,
+      name,
+      password,
+      major,
+    });
 
     alert("회원가입이 완료되었습니다.");
     window.location.replace("/");
