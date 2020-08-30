@@ -1,13 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { Nav, ClassList, Info } from "./components";
+import React from "react";
+import { connect } from "react-redux";
+import { Nav, ClassList, Info, AddClassModal } from "./components";
 import "./Mypage.css";
 
-function Mypage() {
-  const [userInfo, setUserInfo] = useState({});
-  useEffect(() => {
-    setUserInfo(JSON.parse(localStorage.getItem("UserInfo")));
-  }, []);
-
+function Mypage({ modalState }) {
   return (
     <div id="my-page">
       <Nav />
@@ -15,8 +11,15 @@ function Mypage() {
         <ClassList />
         <Info />
       </div>
+      <AddClassModal isOpen={modalState.modal} />
     </div>
   );
 }
 
-export default Mypage;
+function mapStateToProps(state, ownProps) {
+  return {
+    modalState: state,
+  };
+}
+
+export default connect(mapStateToProps)(Mypage);

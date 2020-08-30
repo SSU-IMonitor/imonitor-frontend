@@ -1,13 +1,14 @@
 import React from "react";
+import { openModal } from "actions";
+import { connect } from "react-redux";
 import "./ClassList.css";
 
-function ClassList() {
-
+function ClassList({ open }) {
   return (
     <section id="class-list">
       <div className="header">
         <h1>내 과목 목록</h1>
-        <button>수업 추가</button>
+        <button onClick={open}>수업 추가</button>
       </div>
       <ul className="list">
         <li>
@@ -61,4 +62,12 @@ function ClassList() {
   );
 }
 
-export default ClassList;
+function mapDispatchToProps(dispatch, ownProps) {
+  return {
+    open: () => {
+      dispatch(openModal());
+    },
+  };
+}
+
+export default connect(null, mapDispatchToProps)(ClassList);
