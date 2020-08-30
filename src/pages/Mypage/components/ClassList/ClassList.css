@@ -1,3 +1,83 @@
 #class-list {
   flex: 2;
+  padding: 30px 40px;
+  box-sizing: content-box;
+}
+
+#class-list .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#class-list .header h1 {
+  color: #6DC2DD;
+}
+
+#class-list .header button {
+  padding: 7px;
+  border: none;
+  border-radius: 5px;
+  background-color: #6DC2DD;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#class-list .header button:hover {
+  transform: translateZ(0) scale(0.97);
+}
+
+#class-list .list {
+  height: calc(100% - 60px);
+  margin: 10px 0;
+  overflow: scroll;
+  list-style-type: none;
+}
+
+#class-list .list li {
+  padding: 12px 10px;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+}
+
+#class-list .list li:hover {
+  background-color: #eee;
+}
+
+#class-list .list li h1 {
+  margin-bottom: 3px;
+  font-weight: bold;
+  font-size: 17px;
+}
+
+#class-list .list li h2 {
+  font-weight: normal;
+  font-size: 14px;
+}
+
+#class-list .list .paging {
+  margin: 20px 0;
+}
+
+#class-list .list .paging span {
+  width: 25px;
+  height: 25px;
+  margin: 0 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #bbb;
+  border-radius: 3px;
+  font-weight: 500;
+  font-size: 13px;
+  color: #333;
+  cursor: pointer;
+}
+
+#class-list .list .paging span + .active {
+  border-color: #6DC2DD;
+  background-color: #6DC2DD;
+  color: #fff;
 }
