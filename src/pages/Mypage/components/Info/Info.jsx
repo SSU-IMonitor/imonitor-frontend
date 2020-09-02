@@ -3,7 +3,6 @@ import "./Info.css";
 
 function Info() {
   const info = JSON.parse(localStorage.getItem("UserInfo"));
-  console.log(info);
   return (
     <section id="info" className="flex-column-center">
       <img src="/images/profile_img.png" alt="profile" />

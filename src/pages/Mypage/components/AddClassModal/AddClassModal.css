@@ -39,8 +39,40 @@
 }
 
 #add-class .content .list li {
+  position: relative;
   padding: 10px;
   border-bottom: 1px solid #ccc;
+}
+
+#add-class .content .list li h1 {
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+#add-class .content .list li h2 {
+  line-height: 1.5;
+  font-weight: normal;
+  font-size: 12px;
+}
+
+#add-class .content .list li button {
+  width: 45px;
+  height: 26px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  border-radius: 5px;
+  background-color: #6DC2DD;
+  right: 10px;
+  font-size: 13px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#add-class .content .list li button:hover {
+  transform: translateY(-50%) translateZ(0) scale(0.97);
 }
 
 #add-class-layer {
