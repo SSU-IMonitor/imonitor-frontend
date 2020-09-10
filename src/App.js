@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
-import { Main, Mypage } from "pages";
+import { Main, Mypage, Exam } from "pages";
 import { NotFound } from "common";
 import axios from "axios";
 import "./App.css";
@@ -14,6 +14,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Main} />
           <Route path="/class" component={loggined ? Mypage : NotFound} />
+          <Route path="/exam/:id" component={Exam} />
           <Redirect path="*" to="/" />
         </Switch>
       </Router>
