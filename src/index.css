@@ -13,7 +13,7 @@ p, a, h1, h2, h3, h4, h5, h6 {
   text-decoration: none;
 }
 
-html, body, div, span, form, input {
+html, body, div, span, form, input, ul {
   margin: 0;
   padding: 0;
 }
@@ -25,4 +25,8 @@ button, input {
 
 button:focus, input:focus {
   outline: none;
+}
+
+button:active {
+  color: currentColor;
 }

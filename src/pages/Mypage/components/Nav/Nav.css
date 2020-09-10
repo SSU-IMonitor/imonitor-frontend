@@ -1,0 +1,23 @@
+#nav {
+  height: 70px;
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#nav img {
+  width: 100px;
+  height: 60px;
+  cursor: pointer;
+}
+
+#nav span {
+  font-weight: bold;
+  color: #6DC2DD;
+  cursor: pointer;
+}
+
+#nav span:hover {
+  color: #40a8c4;
+}

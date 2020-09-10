@@ -17,7 +17,7 @@
 }
 
 #login-form .input-wrapper input:focus {
-  border: 1px solid #6D9CC4;
+  border: 1px solid #5191BB;
 }
 
 #login-form .button-wrapper {
@@ -29,7 +29,7 @@
   height: 90%;
   border: none;
   border-radius: 5px;
-  background-color: #6D9CC4;
+  background-color: #5191BB;
   font-size: 14px;
   color: #fff;
   cursor: pointer;

@@ -1,0 +1,85 @@
+#add-class {
+  width: 700px;
+  height: 80%;
+  padding: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  overflow: scroll;
+  border-radius: 10px;
+  transform: translateX(-50%) translateY(-50%);
+  background-color: #fff;
+  z-index: 10;
+}
+
+#add-class #close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 20px;
+  color: #666;
+  cursor: pointer;
+}
+
+#add-class .header h1 {
+  color: #6DC2DD;
+}
+
+#add-class .search input {
+  width: calc(100% - 22px);
+  margin: 20px 0;
+  padding: 10px;
+  border: none;
+  background-color: #eee;
+  font-size: 13px;
+}
+
+#add-class .content .list {
+  list-style-type: none;
+}
+
+#add-class .content .list li {
+  position: relative;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+#add-class .content .list li h1 {
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+#add-class .content .list li h2 {
+  line-height: 1.5;
+  font-weight: normal;
+  font-size: 12px;
+}
+
+#add-class .content .list li button {
+  width: 45px;
+  height: 26px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  border-radius: 5px;
+  background-color: #6DC2DD;
+  right: 10px;
+  font-size: 13px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#add-class .content .list li button:hover {
+  transform: translateY(-50%) translateZ(0) scale(0.97);
+}
+
+#add-class-layer {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 10;
+}
