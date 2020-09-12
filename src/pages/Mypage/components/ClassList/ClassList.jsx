@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { openModal } from "actions";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import "./ClassList.css";
 
@@ -25,7 +26,7 @@ function ClassList({ open }) {
         const exams = res.data.exams;
         let divList = [];
         for (let i = 0; i <= exams.length / 10; i++) {
-          divList.push(exams.slice(i * 10, (i+1) * 10));
+          divList.push(exams.slice(i * 10, (i + 1) * 10));
         }
         setList(divList);
         setTotalPage(makePage(res.data.exams.length));
@@ -69,10 +70,12 @@ function ClassList({ open }) {
       <ul className="list">
         {list[curPage - 1]
           ? list[curPage - 1].map(cls => (
-              <li key={cls.id}>
-                <h1>{cls.title}</h1>
-                <h2>{cls.owner.name}</h2>
-              </li>
+              <Link to={`/exam/${cls.id}`} key={cls.id}>
+                <li>
+                  <h1>{cls.title}</h1>
+                  <h2>{cls.owner.name}</h2>
+                </li>
+              </Link>
             ))
           : null}
         <div className="paging flex-row-center">

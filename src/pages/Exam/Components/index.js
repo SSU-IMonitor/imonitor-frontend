@@ -1,0 +1,1 @@
+export { default as ExamWrapper } from "./ExamWrapper/ExamWrapper";
