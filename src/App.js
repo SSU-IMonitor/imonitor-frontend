@@ -14,7 +14,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Main} />
           <Route path="/class" component={loggined ? Mypage : NotFound} />
-          <Route path="/exam/:id" component={Exam} />
+          <Route path="/exam/:id" component={loggined ? Exam : NotFound} />
           <Redirect path="*" to="/" />
         </Switch>
       </Router>
