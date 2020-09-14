@@ -5,7 +5,7 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import "./ExamWrapper.css";
 
-function ExamWrapper({ id, push }) {
+function ExamWrapper({ id, push, setTaking }) {
   const [examData, setExamData] = useState({});
   const [examStatus, setExamStatus] = useState(false);
   const [remaining, setRemaining] = useState("");
@@ -74,7 +74,7 @@ function ExamWrapper({ id, push }) {
 
   const enterExam = () => {
     if (examStatus) {
-      alert("준비중입니다");
+      setTaking(true);
     } else {
       alert("아직 시험시간이 아닙니다");
     }
