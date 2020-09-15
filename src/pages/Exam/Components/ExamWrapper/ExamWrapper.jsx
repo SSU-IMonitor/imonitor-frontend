@@ -2,11 +2,9 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import axios from "axios";
 import "./ExamWrapper.css";
 
-function ExamWrapper({ id, push, setTaking }) {
-  const [examData, setExamData] = useState({});
+function ExamWrapper({ push, setTaking, examData }) {
   const [examStatus, setExamStatus] = useState(false);
   const [remaining, setRemaining] = useState("");
   const [remainingStyle, setRemainingStyle] = useState({});
@@ -17,26 +15,16 @@ function ExamWrapper({ id, push, setTaking }) {
   const UTCtoKST = 1000 * 60 * 60 * 9;
 
   useEffect(() => {
-    const tokenType = JSON.parse(localStorage.getItem("TokenType"));
-    const accessToken = JSON.parse(localStorage.getItem("AccessToken"));
-    const header = {
-      headers: {
-        Authorization: tokenType + " " + accessToken,
-      },
-    };
-    axios.get(`/exams/${id}`, header).then(res => {
-      setExamData(res.data.exam);
-      setStartTime(new Date(res.data.exam.startTime));
-      setEndTime(new Date(res.data.exam.endTime));
-    });
-  }, []);
+    setStartTime(new Date(examData.startTime));
+    setEndTime(new Date(examData.endTime));
+  }, [examData]);
 
   useEffect(() => {
     if (Object.keys(examData).length !== 0) {
       setTime();
       setInterval(setTime, 1000);
     }
-  }, [examData]);
+  }, [startTime, endTime]);
 
   const goBack = () => {
     push("/class");
@@ -75,6 +63,7 @@ function ExamWrapper({ id, push, setTaking }) {
   const enterExam = () => {
     if (examStatus) {
       setTaking(true);
+      alert("새로고침이나 뒤로 갈 경우 시험이 중단됩니다. 신중하게 응시 부탁드립니다.")
     } else {
       alert("아직 시험시간이 아닙니다");
     }

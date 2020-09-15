@@ -6,3 +6,102 @@
   background-color: #fff;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
+
+#exam-site .exam-info {
+  margin: 60px 0;
+  text-align: center;
+  line-height: 1.8;
+}
+
+#exam-site .exam-info .title {
+  font-size: 40px;
+}
+
+#exam-site .exam-info .name {
+  font-weight: normal;
+  font-size: 20px;
+  color: #666;
+}
+
+#exam-site .exam-info .eyes-out {
+  font-weight: normal;
+}
+
+#exam-site .exam-question {
+  width: 50%;
+  position: relative;
+  margin: 30px 0;
+  text-align: center;
+}
+
+#exam-site .exam-question .left-problem {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 50%;
+  left: -80px;
+  transform: translateY(-50%);
+  background-color: transparent;
+  font-size: 30px;
+  color: #333;
+}
+
+#exam-site .exam-question .left-problem:hover {
+  transform: translateY(-50%);
+}
+
+#exam-site .exam-question .right-problem {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 50%;
+  right: -80px;
+  transform: translateY(-50%);
+  background-color: transparent;
+  font-size: 30px;
+  color: #333;
+}
+
+#exam-site .exam-question .right-problem:hover {
+  transform: translateY(-50%);
+}
+
+#exam-site .exam-question .problem-number {
+  margin-bottom: 30px;
+  color: #6dc2dd;
+}
+
+#exam-site .exam-question .problem {
+  margin-bottom: 50px;
+  font-weight: normal;
+  font-size: 20px;
+}
+
+#exam-site .exam-question input {
+  width: 100%;
+  margin: 50px 0;
+  padding: 8px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 13px;
+}
+
+#exam-site .exam-question input:focus {
+  border-color: #6dc2dd;
+}
+
+#exam-site .exam-question button {
+  width: 150px;
+  padding: 7px;
+  border: none;
+  border-radius: 5px;
+  background-color: #5191bb;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#exam-site .exam-question button:hover {
+  transform: translateZ(0) scale(0.97);
+}
