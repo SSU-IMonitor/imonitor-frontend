@@ -1,20 +1,24 @@
 import React from "react";
 import { useState, createRef } from "react";
+import { openModal } from "actions";
+import { connect } from "react-redux";
 import "./ExamSite.css";
 
-function ExamSite({ examData }) {
+function ExamSite({ examData, finishExam }) {
   const [pnum, setPnum] = useState(0);
-  const [answer, setAnswer] = useState(new Array(pnum));
   const ptotalNum = examData.questions.length;
+  let answer = localStorage.getItem("answer") ? JSON.parse(localStorage.getItem("answer")) : [];
 
   const inputRef = createRef();
 
   const handleSubmit = e => {
     e.preventDefault();
-    let tempAnswer = answer.slice();
-    tempAnswer[pnum] = inputRef.current.value;
-    setAnswer(tempAnswer);
+
+    answer[pnum] = inputRef.current.value;
+    localStorage.setItem("answer", JSON.stringify(answer));
+
     inputRef.current.value = "";
+    console.log(JSON.parse(localStorage.getItem("answer")));
     goRightProblem();
   };
 
@@ -28,6 +32,7 @@ function ExamSite({ examData }) {
 
   const goRightProblem = () => {
     if (pnum >= ptotalNum - 1) {
+      finishExam();
       return;
     } else {
       setPnum(pnum + 1);
@@ -53,11 +58,19 @@ function ExamSite({ examData }) {
           <h2 className="problem">{examData.questions[pnum].question}</h2>
           <input ref={inputRef} type="text" placeholder="정답" />
           <br />
-          <button>제출</button>
+          <button>입력</button>
         </form>
       </div>
     </section>
   );
 }
 
-export default ExamSite;
+function mapDispatchToProps(dispatch, ownProps) {
+  return {
+    finishExam: () => {
+      dispatch(openModal());
+    },
+  };
+}
+
+export default connect(null, mapDispatchToProps)(ExamSite);

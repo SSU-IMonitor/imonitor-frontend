@@ -1,10 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { ExamWrapper, ExamSite } from "./Components";
+import { connect } from "react-redux";
+import { ExamWrapper, ExamSite, ExamResult } from "./Components";
 import axios from "axios";
 import "./Exam.css";
 
-function Exam({ history, match }) {
+function Exam({ history, match, modalState }) {
   const [examData, setExamData] = useState({});
   const [taking, setTaking] = useState(false);
 
@@ -25,9 +26,16 @@ function Exam({ history, match }) {
     <div id="exam">
       {taking ? <></> : <ExamWrapper push={history.push} setTaking={setTaking} examData={examData} />}
       {taking ? <ExamSite examData={examData} /> : <></>}
+      <ExamResult isOpen={modalState.modal} examData={examData} />
       <div className="bg"></div>
     </div>
   );
 }
 
-export default Exam;
+function mapStateToProps(state, ownProps) {
+  return {
+    modalState: state,
+  };
+}
+
+export default connect(mapStateToProps)(Exam);

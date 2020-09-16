@@ -1,0 +1,51 @@
+#exam-result {
+  width: 700px;
+  height: 80%;
+  padding: 30px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  overflow: scroll;
+  border-radius: 10px;
+  transform: translateX(-50%) translateY(-50%);
+  background-color: #fff;
+  z-index: 10;
+}
+
+#exam-result .answer-list {
+  list-style-type: none;
+}
+
+#exam-result .answer-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+#exam-result button {
+  width: 150px;
+  margin: 30px auto;
+  padding: 7px;
+  display: block;
+  border: none;
+  border-radius: 5px;
+  background-color: #5191bb;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+#exam-result button:hover {
+  transform: translateZ(0) scale(0.97);
+}
+
+#exam-result-layer {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 10;
+}
